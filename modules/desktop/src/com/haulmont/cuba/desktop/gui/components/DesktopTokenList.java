@@ -450,6 +450,9 @@ public class DesktopTokenList extends DesktopAbstractField<JPanel> implements To
     public void setSimple(boolean simple) {
         this.simple = simple;
         this.addButton.setVisible(simple);
+        if (this.rootPanel.editor != null) {
+            this.rootPanel.remove(this.rootPanel.editor);
+        }
         this.rootPanel.editor = null;
         this.rootPanel.refreshComponent();
     }
@@ -462,6 +465,9 @@ public class DesktopTokenList extends DesktopAbstractField<JPanel> implements To
     @Override
     public void setPosition(Position position) {
         this.position = position;
+        if (this.rootPanel.editor != null) {
+            this.rootPanel.remove(this.rootPanel.editor);
+        }
         this.rootPanel.editor = null;
         this.rootPanel.refreshComponent();
     }
@@ -484,6 +490,9 @@ public class DesktopTokenList extends DesktopAbstractField<JPanel> implements To
     @Override
     public void setInline(boolean inline) {
         this.inline = inline;
+        if (this.rootPanel.editor != null) {
+            this.rootPanel.remove(this.rootPanel.editor);
+        }
         this.rootPanel.editor = null;
         this.rootPanel.refreshComponent();
     }
@@ -1196,6 +1205,23 @@ public class DesktopTokenList extends DesktopAbstractField<JPanel> implements To
 
             requestRepaint();
             requestContainerUpdate();
+
+            if (getWidth() > 0 && getHeight() > 0) {
+                SwingUtilities.invokeLater(() -> {
+                    int maxWidth = 0;
+                    for (java.awt.Component token : tokensContainer.getComponents()) {
+                        maxWidth = token.getWidth() > maxWidth ? token.getWidth() : maxWidth;
+                    }
+                    MigLayoutHelper.applyWidth(tokensContainerCC, maxWidth, UNITS_PIXELS, false);
+
+                    DesktopVBox wrapper = new DesktopVBox();
+                    wrapper.setHeight(AUTO_SIZE);
+                    wrapper.getImpl().add(tokensContainer, tokensContainerCC);
+
+                    scrollContainer.removeAll();
+                    scrollContainer.add(wrapper);
+                });
+            }
         }
 
         public void refreshClickListeners(ItemClickListener listener) {
