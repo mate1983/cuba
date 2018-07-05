@@ -826,6 +826,7 @@
         <xs:attribute name="height" type="componentSize"/>
         <xs:attribute name="colspan" type="xs:integer"/>
         <xs:attribute name="rowspan" type="xs:integer"/>
+        <xs:attribute name="expandRatio" type="xs:float"/>
     </xs:attributeGroup>
 
     <xs:attributeGroup name="hasIcon">
