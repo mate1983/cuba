@@ -818,7 +818,7 @@
 
     <xs:attributeGroup name="requiresId">
         <xs:attribute name="id" type="xs:string" use="required"/>
-        <xs:anyAttribute namespace="##other" processContents="lax"/>
+        <xs:anyAttribute processContents="lax"/>
     </xs:attributeGroup>
 
     <xs:attributeGroup name="hasSize">
