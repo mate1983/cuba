@@ -20,10 +20,8 @@ package com.haulmont.cuba.gui.app.core.entityinspector;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.haulmont.bali.util.ParamsMap;
-import com.haulmont.chile.core.model.MetaClass;
-import com.haulmont.chile.core.model.MetaProperty;
-import com.haulmont.chile.core.model.Range;
-import com.haulmont.chile.core.model.Session;
+import com.haulmont.chile.core.model.*;
+import com.haulmont.chile.core.model.utils.InstanceUtils;
 import com.haulmont.cuba.client.ClientConfig;
 import com.haulmont.cuba.core.app.importexport.EntityImportExportService;
 import com.haulmont.cuba.core.app.importexport.EntityImportView;
@@ -230,6 +228,10 @@ public class EntityInspectorBrowse extends AbstractLookup {
                 column.setFormatter(dateTimeFormatter);
             }
 
+            if (range.isDatatype() && range.asDatatype().getJavaClass().equals(Boolean.class)) {
+                column.setType(Boolean.class);
+            }
+
             if (metaProperty.getJavaType().equals(String.class)) {
                 column.setMaxTextLength(MAX_TEXT_LENGTH);
             }
@@ -241,13 +243,6 @@ public class EntityInspectorBrowse extends AbstractLookup {
                 column.setCaption(metaProperty.getName());
                 systemPropertyColumns.add(column);
             }
-        }
-        for (Table.Column column : nonSystemPropertyColumns) {
-            entitiesTable.addColumn(column);
-        }
-
-        for (Table.Column column : systemPropertyColumns) {
-            entitiesTable.addColumn(column);
         }
 
         if (entitiesDs != null) {
@@ -265,6 +260,18 @@ public class EntityInspectorBrowse extends AbstractLookup {
         entitiesDs.setQuery(String.format("select e from %s e", meta.getName()));
 
         entitiesTable.setDatasource(entitiesDs);
+
+        for (Table.Column column : nonSystemPropertyColumns) {
+            if (Boolean.class.equals(column.getType())) {
+                addGeneratedBooleanColumn(column);
+            } else {
+                entitiesTable.addColumn(column);
+            }
+        }
+
+        for (Table.Column column : systemPropertyColumns) {
+            entitiesTable.addColumn(column);
+        }
 
         tableBox.add(entitiesTable);
 
@@ -455,6 +462,18 @@ public class EntityInspectorBrowse extends AbstractLookup {
             }
         }
         return entityImportView;
+    }
+
+    protected void addGeneratedBooleanColumn(Table.Column column) {
+        if (column.getId() instanceof MetaPropertyPath) {
+            MetaPropertyPath metaPropertyPath = (MetaPropertyPath) column.getId();
+            //noinspection unchecked
+            entitiesTable.addGeneratedColumn(metaPropertyPath.getMetaProperty().getName(), entity -> {
+                Label label = componentsFactory.createComponent(Label.class);
+                label.setValue(InstanceUtils.getValueEx(entity, metaPropertyPath.getPath()));
+                return label;
+            });
+        }
     }
 
     protected class CreateAction extends BaseAction {
