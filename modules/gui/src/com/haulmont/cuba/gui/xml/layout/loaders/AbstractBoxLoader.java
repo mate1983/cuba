@@ -55,7 +55,7 @@ public abstract class AbstractBoxLoader<T extends BoxLayout> extends ContainerLo
 
     protected void setComponentsRatio(BoxLayout resultComponent, Element element) {
         for (Element subElement : element.elements()) {
-            String stringRatio = subElement.attributeValue("expandRatio");
+            String stringRatio = subElement.attributeValue("box.expandRatio");
             if (!Strings.isNullOrEmpty(stringRatio)) {
                 String subId = subElement.attributeValue("id");
 
