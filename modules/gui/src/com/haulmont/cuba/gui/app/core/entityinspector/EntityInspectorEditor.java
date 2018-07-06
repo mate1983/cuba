@@ -614,6 +614,10 @@ public class EntityInspectorEditor extends AbstractWindow {
      */
     protected void addBooleanCustomField(MetaClass metaClass, MetaProperty metaProperty, Entity item,
                                          FieldGroup fieldGroup, boolean required, boolean readOnly) {
+        if (!attrViewPermitted(metaClass, metaProperty)) {
+            return;
+        }
+
         LookupField field = componentsFactory.createComponent(LookupField.class);
         String caption = getPropertyCaption(datasource.getMetaClass(), metaProperty);
         field.setCaption(caption);
