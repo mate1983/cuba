@@ -664,7 +664,7 @@ configure(webModule) {
     }
 
     task buildScssThemes(type: CubaWebScssThemeCreation) {
-        themes = ['halo', 'havana']
+        themes = ['halo', 'flat', 'havana']
 //        compress = true
 //        sprites = true
 //        cleanup = true
@@ -673,6 +673,19 @@ configure(webModule) {
     assemble.dependsOn buildScssThemes
 
     task deployThemes(type: CubaDeployThemeTask, dependsOn: buildScssThemes) {
+    }
+
+    task buildFlat(type: CubaWebScssThemeCreation) {
+        themes = ['flat']
+//        compress = true
+//        sprites = true
+//        cleanup = true
+    }
+
+    task deployFlat(type: Copy, dependsOn: buildFlat) {
+        from file("$webModule.buildDir/web/VAADIN/themes/flat")
+        into "${cuba.tomcat.dir}/webapps/cuba/VAADIN/themes/flat"
+        exclude '**/web.xml'
     }
 
     task buildHalo(type: CubaWebScssThemeCreation) {
