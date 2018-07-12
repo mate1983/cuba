@@ -15,12 +15,24 @@
  *
  */
 
+/**
+ * The color of radiobutton background.
+ * @group optiongroup
+ */
+$cuba-optiongroup-color: $v-selection-color !default;
+
 @mixin halo-optiongroup($primary-stylename: v-select-optiongroup) {
   .#{$primary-stylename}-horizontal {
     white-space: nowrap;
 
     .v-select-option:last-child {
       margin-right: 0;
+    }
+  }
+
+  .v-radiobutton {
+    :root & > input:checked ~ label:after {
+      background: $cuba-optiongroup-color;
     }
   }
 }

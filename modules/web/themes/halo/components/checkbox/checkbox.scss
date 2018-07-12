@@ -36,6 +36,11 @@ $cuba-checkbox-line-height--small: ceil($v-unit-size / 2.1);
  * @group checkbox
  */
 $cuba-checkbox-line-height--large: ceil($v-unit-size / 1.6);
+/**
+ * The color of checkbox tick.
+ * @group checkbox
+ */
+$cuba-checkbox-tick-color: $v-selection-color !default;
 
 @mixin halo-checkbox($primary-stylename: v-checkbox) {
   .#{$primary-stylename} {
@@ -44,6 +49,10 @@ $cuba-checkbox-line-height--large: ceil($v-unit-size / 1.6);
 
     label {
       @include user-select(text);
+    }
+
+    :root & > input:checked ~ label:after {
+      color: $cuba-checkbox-tick-color;
     }
   }
 

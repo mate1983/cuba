@@ -18,15 +18,4 @@
 
 @mixin flat {
   @include halo;
-
-  .v-button {
-    font-weight: 600;
-  }
-
-  .c-buttons-panel > .v-slot.v-slot-icon:first-child > .v-button {
-    $primary-btn-color: #1b6198;
-    background: $primary-btn-color none;
-    border: valo-border($color: $primary-btn-color);
-    color: white;
-  }
 }

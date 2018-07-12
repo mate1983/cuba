@@ -69,6 +69,12 @@ $cuba-menubar-text-color: #adaeb0 !default;
  */
 $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
 
+/**
+ * The color of selected menubar item background.
+ * @group menubar
+ */
+$cuba-menubar-menuitem-background-selected-color: $v-selection-color !default;
+
 @mixin cuba-menubar {
   .c-main-menu.v-menubar {
     border: 0;
@@ -245,6 +251,11 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
         .v-menubar-menuitem-caption,
         .v-menubar-menuitem-shortcut {
           color: $cuba-menubar-menuitem-text-color;
+        }
+
+        .v-menubar-menuitem-selected {
+          @include valo-button-style($background-color: $cuba-menubar-menuitem-background-selected-color, $border: none, $unit-size: null);
+          padding: 0 round($v-unit-size / 2.4);
         }
 
         .v-menubar-menuitem:hover .v-menubar-menuitem-caption,

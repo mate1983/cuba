@@ -16,49 +16,73 @@
 
 // custom
 
-$v-app-background-color: #f2f2f2;
+$v-app-background-color: #fafafa;
+$v-background-color: #fff;
 
-$v-bevel: none;
+$v-bevel: none !default;
+$v-shadow: none !default;
 
-$v-border-radius: 2px;
+$v-border-radius: 4px;
+$v-button-font-color: #222;
+
+$v-font-color: #222;
+$v-font-size: 14px;
 $v-gradient: none;
 
-$v-font-size: 14px;
+$v-link-font-color: #222;
+$v-link-text-decoration: none;
+
+$v-caption-font-size: $v-font-size;
+$v-focus-color: #1b6198;
+$v-selection-color: #e8f6fe;
+
+$v-unit-size: 32px;
+
+$v-layout-spacing-vertical: $v-unit-size / 2;
+$v-layout-spacing-horizontal: $v-unit-size / 2;
+
+$v-selection-overlay-padding-vertical: $v-unit-size / 8 !default;
+$v-selection-overlay-padding-horizontal: 0 !default;
+
+$v-layout-margin-top: 16px;
+$v-layout-margin-left: 16px;
+$v-layout-margin-right: 16px;
+$v-layout-margin-bottom: 16px;
+
+$v-textfield-bevel: none !default;
+$v-textfield-shadow: none !default;
+$v-table-row-height: $v-unit-size * 1.25;
+
+// cuba styles
+
+$cuba-menubar-height: $v-unit-size * 1.25 !default;
+$cuba-menubar-background-color: rgba(36, 36, 36, 1);
+$cuba-menubar-text-color: #b3b3b3;
+$cuba-menubar-menuitem-text-color: #b3b3b3;
+$cuba-menubar-menuitem-text-selected-color: #fff !default;
+$cuba-menubar-menuitem-background-selected-color: rgba(191, 191, 191, 0.1) !default;
+
+$cuba-table-header-font-weight: 700;
+
+$cuba-tabsheet-tab-caption-selected-color: $v-font-color;
+$cuba-tabsheet-tab-border-selected-color: $v-focus-color;
+$cuba-maintabsheet-top-padding: 0;
+$cuba-maintabsheet-tabbar-side-padding: 0;
+$cuba-maintabsheet-tabs-border-radius: 0;
+$cuba-maintabsheet-tab-border-top-width: 0;
+$cuba-maintabsheet-tab-margin-left: 0;
+
+$cuba-splitpanel-splitter-width: 1px;
+
+$cuba-checkbox-tick-color: $v-focus-color;
+$cuba-optiongroup-color: $v-focus-color;
+
+// from halo
 $v-font-weight: 400;
 
 $v-font-size--h1: 22px;
 $v-font-size--h2: 18px;
 $v-font-size--h3: 16px;
-
-$v-font-color: #222;
-$v-link-font-color: #222;
-$v-button-font-color: #222;
-
-$v-caption-font-size: $v-font-size;
-
-$v-unit-size: 32px;
-$v-layout-spacing-vertical: $v-unit-size / 2;
-$v-layout-spacing-horizontal: $v-unit-size / 2;
-
-$v-focus-color: #e8f6fe;
-
-$cuba-menubar-background-color: rgba(36, 36, 36, 1);
-$cuba-menubar-text-color: #b3b3b3;
-$cuba-menubar-menuitem-text-color: #b3b3b3;
-$cuba-menubar-menuitem-text-selected-color: #b3b3b3;
-
-$cuba-splitpanel-splitter-width: 1px;
-
-
-
-$v-link-text-decoration: none;
-$v-layout-margin-top: 16px;
-$v-layout-margin-left: 16px;
-$v-layout-margin-right: 16px;
-$v-layout-margin-bottom: 16px;
-$v-table-row-height: $v-unit-size * 1.25;
-
-// from halo
 
 $v-tabsheet-caption-font-size: $v-font-size;
 $v-table-header-font-size: $v-font-size;
@@ -66,24 +90,27 @@ $v-table-cell-padding-horizontal: 7px;
 
 $v-error-indicator-use-bg: false;
 $v-error-indicator-use-color: false;
-$v-focus-style: inset 0px 0px 3px 1px rgba($v-focus-color, 0.5);
-$v-error-focus-style: inset 0px 0px 3px 1px rgba($v-error-indicator-color, 0.5);
+$v-focus-style: none;
+$v-error-focus-style: none;
 
 /**
  * Whether to enable show/hide animations for dialog windows.
  * @group window
  */
 $v-window-animations-enabled: false !default;
+
 /**
  * Whether to include styles for inverse colored main menu.
  * @group menubar
  */
 $v-support-inverse-menu: true !default;
+
 /**
  * Whether to show or not separate * element for required fields.
  * @group field
  */
 $v-show-required-indicators: false !default;
+
 /**
  * Enables custom colored scrollbars for webkit/blink browsers.
  * @group scrollbar
@@ -95,6 +122,7 @@ $cuba-scrollbars-style-enabled: false !default;
  * @group menubar
  */
 $cuba-app-menubar-padding-top: 0 !default;
+
 /**
  * The bottom padding of main menu bar.
  * @group menubar
