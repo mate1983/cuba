@@ -17,15 +17,12 @@
 
 @mixin cuba-entity-inspector-browse {
 
- .table-boolean-text .boolean-cell {
+ .table-boolean-text .v-table .boolean-cell {
 
    .v-table-cell-wrapper {
      color: inherit;
      font-size: inherit;
-   }
-
-   .v-table-cell-wrapper::before {
-     content: none;
+     background-image: none;
    }
  }
 }

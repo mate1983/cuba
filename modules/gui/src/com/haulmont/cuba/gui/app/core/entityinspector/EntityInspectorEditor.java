@@ -623,9 +623,10 @@ public class EntityInspectorEditor extends AbstractWindow {
         field.setCaption(caption);
         field.setEditable(!readOnly);
         field.setRequired(required);
-        field.setWidth("400px");
         field.setDatasource(datasource, metaProperty.getName());
-        field.setOptionsList(Arrays.asList(Boolean.TRUE, Boolean.FALSE));
+        field.setOptionsMap(ParamsMap.of(
+                messages.getMainMessage("trueString"), Boolean.TRUE,
+                messages.getMainMessage("falseString"), Boolean.FALSE));
         field.setTextInputAllowed(false);
 
         if (!PersistenceHelper.isNew(item)) {
@@ -635,6 +636,7 @@ public class EntityInspectorEditor extends AbstractWindow {
         }
 
         FieldGroup.FieldConfig fieldConfig = fieldGroup.createField(metaProperty.getName());
+        fieldConfig.setWidth("400px");
         fieldConfig.setComponent(field);
 
         fieldGroup.addField(fieldConfig);

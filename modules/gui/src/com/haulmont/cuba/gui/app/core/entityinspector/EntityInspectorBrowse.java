@@ -21,7 +21,6 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 import com.haulmont.bali.util.ParamsMap;
 import com.haulmont.chile.core.model.*;
-import com.haulmont.chile.core.model.utils.InstanceUtils;
 import com.haulmont.cuba.client.ClientConfig;
 import com.haulmont.cuba.core.app.importexport.EntityImportExportService;
 import com.haulmont.cuba.core.app.importexport.EntityImportView;
@@ -278,19 +277,6 @@ public class EntityInspectorBrowse extends AbstractLookup {
         entitiesTable.setItemClickAction(entitiesTable.getAction("edit"));
         entitiesTable.setMultiSelect(true);
 
-        //noinspection unchecked
-        entitiesTable.setStyleProvider((entity, property) -> {
-            if (property != null && isBooleanProperty(entity, property)){
-                Boolean value = entity.getValue(property);
-                if (value == null) {
-                    return "boolean-text-null";
-                } else {
-                    return value ? "boolean-text-true" : "boolean-text-false";
-                }
-            }
-            return null;
-        });
-
         entitiesTable.addStyleName("table-boolean-text");
 
         createFilter();
@@ -468,18 +454,6 @@ public class EntityInspectorBrowse extends AbstractLookup {
             }
         }
         return entityImportView;
-    }
-
-    protected boolean isBooleanProperty(Entity entity, String property) {
-        MetaClass metaClass = entity.getMetaClass();
-        MetaProperty metaProperty = metaClass.getPropertyNN(property);
-        Range range = metaProperty.getRange();
-
-        if (range.isDatatype()) {
-            return Boolean.class.equals(range.asDatatype().getJavaClass());
-        }
-
-        return false;
     }
 
     protected class CreateAction extends BaseAction {
