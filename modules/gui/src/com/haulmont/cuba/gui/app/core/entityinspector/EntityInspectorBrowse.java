@@ -228,10 +228,6 @@ public class EntityInspectorBrowse extends AbstractLookup {
                 column.setFormatter(dateTimeFormatter);
             }
 
-            if (range.isDatatype() && range.asDatatype().getJavaClass().equals(Boolean.class)) {
-                column.setType(Boolean.class);
-            }
-
             if (metaProperty.getJavaType().equals(String.class)) {
                 column.setMaxTextLength(MAX_TEXT_LENGTH);
             }
@@ -243,6 +239,13 @@ public class EntityInspectorBrowse extends AbstractLookup {
                 column.setCaption(metaProperty.getName());
                 systemPropertyColumns.add(column);
             }
+        }
+        for (Table.Column column : nonSystemPropertyColumns) {
+            entitiesTable.addColumn(column);
+        }
+
+        for (Table.Column column : systemPropertyColumns) {
+            entitiesTable.addColumn(column);
         }
 
         if (entitiesDs != null) {
@@ -261,18 +264,6 @@ public class EntityInspectorBrowse extends AbstractLookup {
 
         entitiesTable.setDatasource(entitiesDs);
 
-        for (Table.Column column : nonSystemPropertyColumns) {
-            if (Boolean.class.equals(column.getType())) {
-                addGeneratedBooleanColumn(column);
-            } else {
-                entitiesTable.addColumn(column);
-            }
-        }
-
-        for (Table.Column column : systemPropertyColumns) {
-            entitiesTable.addColumn(column);
-        }
-
         tableBox.add(entitiesTable);
 
         entitiesTable.setSizeFull();
@@ -286,6 +277,21 @@ public class EntityInspectorBrowse extends AbstractLookup {
         entitiesTable.setEnterPressAction(entitiesTable.getAction("edit"));
         entitiesTable.setItemClickAction(entitiesTable.getAction("edit"));
         entitiesTable.setMultiSelect(true);
+
+        //noinspection unchecked
+        entitiesTable.setStyleProvider((entity, property) -> {
+            if (property != null && isBooleanProperty(entity, property)){
+                Boolean value = entity.getValue(property);
+                if (value == null) {
+                    return "boolean-text-null";
+                } else {
+                    return value ? "boolean-text-true" : "boolean-text-false";
+                }
+            }
+            return null;
+        });
+
+        entitiesTable.addStyleName("table-boolean-text");
 
         createFilter();
     }
@@ -464,16 +470,16 @@ public class EntityInspectorBrowse extends AbstractLookup {
         return entityImportView;
     }
 
-    protected void addGeneratedBooleanColumn(Table.Column column) {
-        if (column.getId() instanceof MetaPropertyPath) {
-            MetaPropertyPath metaPropertyPath = (MetaPropertyPath) column.getId();
-            //noinspection unchecked
-            entitiesTable.addGeneratedColumn(metaPropertyPath.getMetaProperty().getName(), entity -> {
-                Label label = componentsFactory.createComponent(Label.class);
-                label.setValue(InstanceUtils.getValueEx(entity, metaPropertyPath.getPath()));
-                return label;
-            });
+    protected boolean isBooleanProperty(Entity entity, String property) {
+        MetaClass metaClass = entity.getMetaClass();
+        MetaProperty metaProperty = metaClass.getPropertyNN(property);
+        Range range = metaProperty.getRange();
+
+        if (range.isDatatype()) {
+            return Boolean.class.equals(range.asDatatype().getJavaClass());
         }
+
+        return false;
     }
 
     protected class CreateAction extends BaseAction {

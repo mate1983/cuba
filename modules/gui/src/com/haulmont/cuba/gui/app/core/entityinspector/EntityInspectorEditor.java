@@ -626,6 +626,7 @@ public class EntityInspectorEditor extends AbstractWindow {
         field.setWidth("400px");
         field.setDatasource(datasource, metaProperty.getName());
         field.setOptionsList(Arrays.asList(Boolean.TRUE, Boolean.FALSE));
+        field.setTextInputAllowed(false);
 
         if (!PersistenceHelper.isNew(item)) {
             MetaPropertyPath metaPropertyPath = metaClass.getPropertyPath(metaProperty.getName());
