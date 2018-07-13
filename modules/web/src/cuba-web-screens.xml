@@ -76,4 +76,7 @@
 
     <screen id="loginWindow"
             template="/com/haulmont/cuba/web/app/loginwindow/loginwindow.xml"/>
+
+    <screen id="hoverLoginWindow"
+            template="/com/haulmont/cuba/web/app/hoverloginwindow/hover-loginwindow.xml"/>
 </screen-config>

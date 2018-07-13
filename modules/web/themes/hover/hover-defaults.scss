@@ -15,13 +15,16 @@
  *
  */
 
-// custom
+/*
+  Custom
+*/
 
 $v-app-background-color: #f2f2f2;
 $v-background-color: #fff;
 
 $v-bevel: none;
 $v-shadow: none;
+$v-gradient: none;
 
 $v-border-radius: 4px;
 $v-button-font-color: #222;
@@ -57,10 +60,34 @@ $v-table-row-height: $v-unit-size * 1.25;
 $v-friendly-color: #0db700;
 $v-error-indicator-color: #d24f4f;
 
-// cuba styles
+/*
+  CUBA Styles
+*/
 
-$cuba-btn-min-width: $v-unit-size * 2.5;
-$cuba-btn-icon-only-min-width: $v-unit-size * 1.75;
+// login
+
+$cuba-login-panel-padding: $v-unit-size * 1.25;
+
+$cuba-login-username-height: $v-unit-size * 1.25;
+$cuba-login-password-height: $v-unit-size * 1.25;
+$cuba-login-username-border-radius: $v-border-radius $v-border-radius 0 0;
+$cuba-login-password-border-radius: 0 0 $v-border-radius $v-border-radius;
+
+$cuba-login-btn-background: $v-focus-color none;
+$cuba-login-btn-font-weight: 700;
+$cuba-login-btn-height: $v-unit-size * 1.25;
+$cuba-login-btn-margin-top: 0;
+$cuba-login-btn-width: 100%;
+
+$cuba-login-locale-border-width: 0;
+$cuba-login-locale-text-align: right;
+$cuba-login-username-border-bottom-width: 0;
+
+$cuba-login-logo-height: $v-unit-size * 1.25;
+$cuba-login-caption-font-weight: 700;
+$cuba-login-caption-font-size: round($v-font-size * 1.45);
+
+// menubar
 
 $cuba-menubar-background-color: rgba(36, 36, 36, 1);
 $cuba-menubar-border-color: rgba(36, 36, 36, 1);
@@ -70,19 +97,22 @@ $cuba-menubar-menuitem-background-selected-color: rgba(191, 191, 191, 0.1);
 $cuba-menubar-menuitem-border-radius: 0;
 $cuba-menubar-menuitem-text-selected-color: #fff;
 
-$cuba-table-header-font-weight: 700;
+// main tabsheet
 
-$cuba-tabsheet-tab-caption-selected-color: $v-font-color;
-$cuba-tabsheet-tab-border-selected-color: $v-focus-color;
-
-$cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
-$cuba-maintabsheet-top-padding: 0;
-$cuba-maintabsheet-tabbar-side-padding: 0;
-$cuba-maintabsheet-tabs-border-radius: 0;
 $cuba-maintabsheet-tab-border-top-width: 0;
 $cuba-maintabsheet-tab-margin-left: 0;
+$cuba-maintabsheet-tabbar-side-padding: 0;
+$cuba-maintabsheet-tabs-border-radius: 0;
+$cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
+$cuba-maintabsheet-top-padding: 0;
 
+// misc components
+$cuba-btn-min-width: $v-unit-size * 2.5;
+$cuba-btn-icon-only-min-width: $v-unit-size * 1.75;
 $cuba-splitpanel-splitter-width: 1px;
+$cuba-table-header-font-weight: 700;
+$cuba-tabsheet-tab-caption-selected-color: $v-font-color;
+$cuba-tabsheet-tab-border-selected-color: $v-focus-color;
 
 // from halo
 $v-font-weight: 400;

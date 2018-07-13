@@ -194,7 +194,8 @@ public class DefaultApp extends App implements StateChangeListener, UserSubstitu
         if (connection.isAuthenticated()) {
             return "mainWindow";
         } else {
-            return "loginWindow";
+            // TODO: discuss. We can store this value in config to give users an ability to choose login window
+            return "hoverLoginWindow";
         }
     }
 
