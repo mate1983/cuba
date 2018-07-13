@@ -47,33 +47,31 @@ $cuba-menubar-background-color: get-menu-background-color($v-app-background-colo
  * @group menubar
  */
 $cuba-menubar-border-color: get-menu-border-color($v-app-background-color) !default;
-
 /**
  * The padding for main menu submenus.
  * @group menubar
  */
 $cuba-menubar-submenu-padding: 0px !default;
 /**
- * The font color for main menu items.
- * @group menubar
- */
-$cuba-menubar-menuitem-text-color: #adaeb0 !default;
-/**
  * The font color for application header components.
  * @group menubar
  */
 $cuba-menubar-text-color: #adaeb0 !default;
 /**
- * The font color for main menu selected item.
- * @group menubar
- */
-$cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
-
-/**
  * The color of selected menubar item background.
  * @group menubar
  */
 $cuba-menubar-menuitem-background-selected-color: $v-selection-color !default;
+/**
+ * The border radius of the main menubar items.
+ * @group menubar
+ */
+$cuba-menubar-menuitem-border-radius: $v-border-radius !default;
+/**
+ * The font color for main menu selected item.
+ * @group menubar
+ */
+$cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
 
 @mixin cuba-menubar {
   .c-main-menu.v-menubar {
@@ -250,11 +248,20 @@ $cuba-menubar-menuitem-background-selected-color: $v-selection-color !default;
         .v-menubar-menuitem-more-item,
         .v-menubar-menuitem-caption,
         .v-menubar-menuitem-shortcut {
-          color: $cuba-menubar-menuitem-text-color;
+          color: $cuba-menubar-text-color;
+        }
+
+        .v-menubar-menuitem {
+          border-radius: $cuba-menubar-menuitem-border-radius;
         }
 
         .v-menubar-menuitem-selected {
-          @include valo-button-style($background-color: $cuba-menubar-menuitem-background-selected-color, $border: none, $unit-size: null);
+          // TODO: check whether we can avoid including this mixin
+          @include valo-button-style(
+                  $background-color: $cuba-menubar-menuitem-background-selected-color,
+                  $border: none,
+                  $border-radius: $cuba-menubar-menuitem-border-radius,
+                  $unit-size: null);
           padding: 0 round($v-unit-size / 2.4);
         }
 
@@ -268,17 +275,11 @@ $cuba-menubar-menuitem-background-selected-color: $v-selection-color !default;
         }
       }
 
-      .c-user-select-label {
-        color: $cuba-menubar-text-color;
-      }
-
-      .c-user-timezone-label {
-        color: $cuba-menubar-text-color;
-      }
-
+      .c-user-select-label,
+      .c-user-timezone-label,
       .c-ftsfield-button,
       .c-logout-button,
-      .c-newwindow-button {
+      .c-newwindow-button{
         color: $cuba-menubar-text-color;
       }
 

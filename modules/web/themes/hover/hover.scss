@@ -16,6 +16,6 @@
 
 @import "../halo/halo";
 
-@mixin flat {
+@mixin hover {
   @include halo;
 }

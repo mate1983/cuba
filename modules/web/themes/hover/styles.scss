@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-@import "../flat";
+@import "hover-defaults";
+@import "hover";
 
-@mixin com_haulmont_cuba {
-  @include flat;
+.hover {
+  @include hover;
 }

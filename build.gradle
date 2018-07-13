@@ -664,7 +664,7 @@ configure(webModule) {
     }
 
     task buildScssThemes(type: CubaWebScssThemeCreation) {
-        themes = ['halo', 'flat', 'havana']
+        themes = ['halo', 'hover', 'havana']
 //        compress = true
 //        sprites = true
 //        cleanup = true
@@ -675,16 +675,16 @@ configure(webModule) {
     task deployThemes(type: CubaDeployThemeTask, dependsOn: buildScssThemes) {
     }
 
-    task buildFlat(type: CubaWebScssThemeCreation) {
-        themes = ['flat']
+    task buildhover(type: CubaWebScssThemeCreation) {
+        themes = ['hover']
 //        compress = true
 //        sprites = true
 //        cleanup = true
     }
 
-    task deployFlat(type: Copy, dependsOn: buildFlat) {
-        from file("$webModule.buildDir/web/VAADIN/themes/flat")
-        into "${cuba.tomcat.dir}/webapps/cuba/VAADIN/themes/flat"
+    task deployhover(type: Copy, dependsOn: buildhover) {
+        from file("$webModule.buildDir/web/VAADIN/themes/hover")
+        into "${cuba.tomcat.dir}/webapps/cuba/VAADIN/themes/hover"
         exclude '**/web.xml'
     }
 

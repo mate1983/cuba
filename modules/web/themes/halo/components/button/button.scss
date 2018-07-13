@@ -15,8 +15,30 @@
  *
  */
 
+/**
+ * The min width of buttons.
+ * @group button
+ */
+$cuba-btn-min-width: none !default;
+/**
+ * The min width of buttons with "icon-only" stylename.
+ * @group button
+ */
+$cuba-btn-icon-only-min-width: none !default;
+
 @mixin halo-button($primary-stylename: v-button) {
   $link-padding: 2px;
+
+  // TODO: discuss. It affects all buttons
+  .c-buttons-panel {
+    .#{$primary-stylename} {
+      min-width: $cuba-btn-min-width;
+    }
+
+    .#{$primary-stylename}-icon-only {
+      min-width: $cuba-btn-icon-only-min-width;
+    }
+  }
 
   .#{$primary-stylename}-link {
     text-align: left;

@@ -35,12 +35,37 @@ $cuba-app-menubar-padding-top: round($v-unit-size/8) !default;
  * @group menubar
  */
 $cuba-app-menubar-padding-bottom: round($v-unit-size/8) !default;
-
-$cuba-maintabsheet-top-padding: round($v-unit-size/6) !default;
-$cuba-maintabsheet-tabbar-side-padding: 0 round($v-unit-size/4) !default;
-$cuba-maintabsheet-tab-margin-left: ceil($v-unit-size/10) !default;
-
+/**
+ * The background color of the main tabsheet tab container.
+ * @group maintabsheet
+ */
+$cuba-maintabsheet-tabcontainer-background-color: $v-background-color !default;
+/**
+ * The border radius of main tabsheet items.
+ * @group maintabsheet
+ */
 $cuba-maintabsheet-tabs-border-radius: $v-border-radius !default;
+/**
+ * The top padding between tabcontainer and tabs.
+ * @group maintabsheet
+ */
+$cuba-maintabsheet-top-padding: round($v-unit-size/6) !default;
+/**
+ * The margin (distance) between tabs.
+ * @group maintabsheet
+ */
+$cuba-maintabsheet-tab-margin-left: ceil($v-unit-size/10) !default;
+/**
+ * INTERNAL
+ * The side padding of tabbar.
+ * @group maintabsheet
+ */
+$cuba-maintabsheet-tabbar-side-padding: 0 round($v-unit-size/4) !default;
+/**
+ * INTERNAL
+ * The border width of main tabsheet tabs.
+ * @group maintabsheet
+ */
 $cuba-maintabsheet-tab-border-top-width: 1px !default;
 
 // Application Window styles
@@ -56,13 +81,14 @@ $cuba-maintabsheet-tab-border-top-width: 1px !default;
   .v-tabsheet-framed.c-main-tabsheet,
   .v.tabsheet-framed.c-main-tabsheet.padded-tabbar {
     & > .v-tabsheet-tabcontainer {
+      background-color: $cuba-maintabsheet-tabcontainer-background-color;
       padding-top: $cuba-maintabsheet-top-padding;
 
       & > .v-tabsheet-tabs {
         padding: $cuba-maintabsheet-tabbar-side-padding;
       }
 
-      .v-tabsheet-tabitem .v-caption {
+      & .v-tabsheet-tabitem .v-caption {
         border-radius: $cuba-maintabsheet-tabs-border-radius;
         border-left-width: $cuba-maintabsheet-tab-border-top-width;
         border-top-width: $cuba-maintabsheet-tab-border-top-width;
