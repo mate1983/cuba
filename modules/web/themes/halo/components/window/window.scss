@@ -15,6 +15,16 @@
  *
  */
 
+$cuba-window-modal-header-height: $v-unit-size !default;
+
+$cuba-window-modal-header-line-height: $cuba-window-modal-header-height - 1px !default;
+
+$cuba-window-modal-header-buttons-line-height: $cuba-window-modal-header-line-height - 3px !default;
+
+$cuba-window-modal-header-background: null !default;
+
+$cuba-window-modal-header-font-size: inherit !default;
+
 $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
 
 @mixin halo-window($primary-stylename: v-window) {
@@ -43,8 +53,12 @@ $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
 
   .#{$primary-stylename}-outerheader {
     border-bottom: valo-border();
-    $bg-lightness: if(color-luminance($background-color) < 10, 4%, -4%);
-    background-color: scale-color($background-color, $lightness: $bg-lightness);
+
+    @if ($cuba-window-modal-header-background == null) {
+      $bg-lightness: if(color-luminance($background-color) < 10, 4%, -4%);
+      $cuba-window-modal-header-background: scale-color($background-color, $lightness: $bg-lightness);
+    }
+    background-color: $cuba-window-modal-header-background;
 
     .v-mac & {
         border-radius: $v-window-border-radius $v-window-border-radius 0 0;
@@ -62,6 +76,18 @@ $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
     .#{$primary-stylename}-header {
       color: inherit;
       background-color: inherit;
+      height: $cuba-window-modal-header-height;
+    }
+
+    .#{$primary-stylename}-header {
+      font-size: $cuba-window-modal-header-font-size;
+      line-height: $cuba-window-modal-header-line-height;
+    }
+
+    .#{$primary-stylename}-closebox,
+    .#{$primary-stylename}-maximizebox,
+    .#{$primary-stylename}-restorebox {
+      line-height: $cuba-window-modal-header-buttons-line-height;
     }
 
     .v-mac & {

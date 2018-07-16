@@ -15,7 +15,31 @@
  *
  */
 
+$cuba-optiongroup-size: $v-unit-size/2 !default;
+
 @mixin halo-optiongroup($primary-stylename: v-select-optiongroup) {
+  .#{$primary-stylename} {
+    .v-radiobutton {
+      :root & > input {
+        & ~ label:before {
+          height: round($cuba-optiongroup-size);
+          width: round($cuba-optiongroup-size);
+        }
+
+        &:checked ~ label:after {
+          $factor: $cuba-optiongroup-size * 2 / $v-unit-size;
+          $size: ceil(($cuba-optiongroup-size * $factor) / 3);
+          $offset: round($cuba-optiongroup-size / (3 * $factor));
+
+          width: $size;
+          height: $size;
+          top: $offset;
+          left: $offset;
+        }
+      }
+    }
+  }
+
   .#{$primary-stylename}-horizontal {
     white-space: nowrap;
 

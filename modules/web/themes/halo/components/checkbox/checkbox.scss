@@ -20,7 +20,6 @@
  * @group checkbox
  */
 $cuba-checkbox-extra-height: ceil($v-unit-size / 10);
-
 /**
  * The line height of checkbox.
  * @group checkbox
@@ -36,6 +35,16 @@ $cuba-checkbox-line-height--small: ceil($v-unit-size / 2.1);
  * @group checkbox
  */
 $cuba-checkbox-line-height--large: ceil($v-unit-size / 1.6);
+/**
+ * The size of checkbox.
+ * @group checkbox
+ */
+$cuba-checkbox-size: $v-unit-size/2 !default;
+/**
+ * The size of checkbox tick.
+ * @group checkbox
+ */
+$cuba-checkbox-tick-size: round($v-font-size * 0.8 * ($cuba-checkbox-size * 2 / $v-unit-size)) !default;
 
 @mixin halo-checkbox($primary-stylename: v-checkbox) {
   .#{$primary-stylename} {
@@ -44,6 +53,20 @@ $cuba-checkbox-line-height--large: ceil($v-unit-size / 1.6);
 
     label {
       @include user-select(text);
+    }
+
+    :root & {
+      padding-left: round($cuba-checkbox-size * 1.33);
+    }
+
+    :root & > input {
+      & ~ label:before,
+      & ~ label:after {
+        font-size: $cuba-checkbox-tick-size;
+        line-height: $cuba-checkbox-size;
+        height: round($cuba-checkbox-size);
+        width: round($cuba-checkbox-size);
+      }
     }
   }
 

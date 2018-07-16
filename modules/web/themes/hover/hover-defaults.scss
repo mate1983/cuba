@@ -33,14 +33,11 @@ $v-font-color: #222;
 $v-font-size: 14px;
 $v-gradient: none;
 
-$v-link-font-color: #222;
-$v-link-text-decoration: none;
-
 $v-caption-font-size: $v-font-size;
 $v-focus-color: #1b6198;
 $v-selection-color: #2b84ca;
 
-$v-unit-size: 32px;
+$v-unit-size: 30px;
 
 $v-layout-spacing-vertical: $v-unit-size / 2;
 $v-layout-spacing-horizontal: $v-unit-size / 2;
@@ -55,37 +52,46 @@ $v-layout-margin-bottom: 16px;
 
 $v-textfield-bevel: none;
 $v-textfield-shadow: none;
-$v-table-row-height: $v-unit-size * 1.25;
+$v-table-row-height: $v-unit-size;
 
-$v-friendly-color: #0db700;
+$v-friendly-color: #52aa4b;
 $v-error-indicator-color: #d24f4f;
 
 /*
   CUBA Styles
 */
 
-// login
+$cuba-optiongroup-size: 18px;
+
+// checkbox
+
+$cuba-checkbox-size: 18px;
+$cuba-checkbox-line-height: $cuba-checkbox-size;
+$cuba-checkbox-tick-size: round($v-font-size * 0.85);
+
+// login screen
 
 $cuba-login-panel-padding: $v-unit-size * 1.25;
 
-$cuba-login-username-height: $v-unit-size * 1.25;
-$cuba-login-password-height: $v-unit-size * 1.25;
+$cuba-login-logo-height: $v-unit-size * 1.25;
+
+$cuba-login-caption-font-weight: 700;
+$cuba-login-caption-font-size: round($v-font-size * 1.45);
+
+$cuba-login-username-border-bottom-width: 0;
 $cuba-login-username-border-radius: $v-border-radius $v-border-radius 0 0;
+$cuba-login-username-height: $v-unit-size * 1.25;
 $cuba-login-password-border-radius: 0 0 $v-border-radius $v-border-radius;
+$cuba-login-password-height: $v-unit-size * 1.25;
+
+$cuba-login-locale-border-width: 0;
+$cuba-login-locale-text-align: right;
 
 $cuba-login-btn-background: $v-focus-color none;
 $cuba-login-btn-font-weight: 700;
 $cuba-login-btn-height: $v-unit-size * 1.25;
 $cuba-login-btn-margin-top: 0;
 $cuba-login-btn-width: 100%;
-
-$cuba-login-locale-border-width: 0;
-$cuba-login-locale-text-align: right;
-$cuba-login-username-border-bottom-width: 0;
-
-$cuba-login-logo-height: $v-unit-size * 1.25;
-$cuba-login-caption-font-weight: 700;
-$cuba-login-caption-font-size: round($v-font-size * 1.45);
 
 // menubar
 
@@ -107,14 +113,23 @@ $cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
 $cuba-maintabsheet-top-padding: 0;
 
 // misc components
-$cuba-btn-min-width: $v-unit-size * 2.5;
-$cuba-btn-icon-only-min-width: $v-unit-size * 1.75;
+
 $cuba-splitpanel-splitter-width: 1px;
 $cuba-table-header-font-weight: 700;
 $cuba-tabsheet-tab-caption-selected-color: $v-font-color;
 $cuba-tabsheet-tab-border-selected-color: $v-focus-color;
 
+
+// modal windows
+
+$cuba-window-modal-header-height: $v-unit-size * 1.5;
+$cuba-window-modal-header-background: $v-background-color;
+$cuba-window-modal-header-buttons-line-height: $cuba-window-modal-header-height;
+$cuba-window-modal-header-font-size: round($v-font-size * 1.45);
+$cuba-window-modal-header-line-height: $cuba-window-modal-header-height;
+
 // from halo
+
 $v-font-weight: 400;
 
 $v-font-size--h1: 22px;
