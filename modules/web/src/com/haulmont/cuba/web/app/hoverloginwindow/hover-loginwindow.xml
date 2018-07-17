@@ -64,7 +64,8 @@
                     </columns>
                     <rows>
                         <row id="loginFieldRow">
-                            <vbox colspan="2">
+                            <cssLayout colspan="2"
+                                       width="100%">
                                 <textField id="loginField"
                                            stylename="c-login-username"
                                            width="100%"/>
@@ -72,7 +73,7 @@
                                                capsLockIndicator="capsLockIndicator"
                                                stylename="c-login-password"
                                                width="100%"/>
-                            </vbox>
+                            </cssLayout>
                         </row>
                         <row id="localesRow">
                             <checkBox id="rememberMeCheckBox"

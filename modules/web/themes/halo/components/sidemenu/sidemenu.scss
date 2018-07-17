@@ -152,9 +152,19 @@ $cuba-sidemenu-top-offset: floor(($v-unit-size - $v-unit-size * 0.8) / 2);
  * @group sidemenu
  */
 $cuba-sidemenu-top-height: $v-unit-size + 2 * $cuba-sidemenu-top-offset;
+/**
+ * The sidemenu background color.
+ * @group sidemenu
+ */
+$cuba-sidemenu-background-color: if(is-dark-color($v-app-background-color), darken($v-app-background-color, 4%), lighten($v-app-background-color, 8%)) !default;
+
+$cuba-sidemenu-title-gradient: true !default;
+
+$cuba-sidemenu-title-font-size: $v-font-size--h2 !default;
+$cuba-sidemenu-title-font-weight: $v-font-weight !default;
 
 @mixin halo-cuba-sidemenu($primary-stylename: c-sidemenu) {
-  $bg: if(is-dark-color($v-app-background-color), darken($v-app-background-color, 4%), lighten($v-app-background-color, 8%)) !default;
+  $bg: $cuba-sidemenu-background-color;
 
   .#{$primary-stylename}-user {
     background: transparent;
@@ -180,20 +190,23 @@ $cuba-sidemenu-top-height: $v-unit-size + 2 * $cuba-sidemenu-top-offset;
   }
 
   .#{$primary-stylename}-title {
-    @include valo-gradient($color: $v-selection-color);
+    @if $cuba-sidemenu-title-gradient {
+      @include valo-gradient($color: $v-selection-color);
+      border-bottom: valo-border($color: $v-selection-color);
+    }
     $font-color: valo-font-color($v-selection-color, 1);
     color: $font-color;
     text-shadow: valo-text-shadow($font-color: $font-color, $background-color: $v-selection-color);
     padding: round($v-unit-size/3) round($v-unit-size/2);
 
-    border-bottom: valo-border($color: $v-selection-color);
     @include box-shadow(valo-bevel-and-shadow($shadow: $v-shadow));
 
     text-align: center;
     width: 100%;
 
     .v-label {
-      font-size: $v-font-size--h2;
+      font-size: $cuba-sidemenu-title-font-size;
+      font-weight: $cuba-sidemenu-title-font-weight;
     }
   }
 

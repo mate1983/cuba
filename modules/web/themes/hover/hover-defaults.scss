@@ -15,8 +15,8 @@
  *
  */
 
-$v-app-background-color: #0d0d0d;
-$v-background-color: if(is-dark-color($v-app-background-color), lighten($v-app-background-color, 10%), lighten($v-app-background-color, 8%));
+$v-app-background-color: #f2f2f2;
+$v-background-color: lighten($v-app-background-color, 15%);
 
 $v-font-color: valo-font-color($v-background-color, 0.85);
 $v-font-size: 14px;
@@ -70,6 +70,12 @@ $cuba-checkbox-size: 18px;
 $cuba-checkbox-line-height: $cuba-checkbox-size;
 $cuba-checkbox-tick-size: round($v-font-size * 0.85);
 
+$cuba-login-btn-background: $v-focus-color none;
+$cuba-login-btn-font-weight: 700;
+$cuba-login-btn-height: $v-unit-size * 1.25;
+$cuba-login-btn-margin-top: 0;
+$cuba-login-btn-width: 100%;
+
 $cuba-login-caption-font-size: round($v-font-size * 1.45);
 $cuba-login-caption-font-weight: 700;
 $cuba-login-locale-border-width: 0;
@@ -85,10 +91,16 @@ $cuba-login-username-height: $v-unit-size + $v-unit-size / 3;
 $cuba-menubar-background-color: rgba(36, 36, 36, 1);
 $cuba-menubar-border-color: $cuba-menubar-background-color;
 $cuba-menubar-height: $v-unit-size + $v-unit-size / 3;
-$cuba-menubar-text-color: #b3b3b3;
-$cuba-menubar-menuitem-background-selected-color: rgba(191, 191, 191, 0.1);
+$cuba-menubar-menuitem-background-selected-color: lighten($cuba-menubar-background-color, 25%);
 $cuba-menubar-menuitem-border-radius: 0;
-$cuba-menubar-menuitem-text-selected-color: #fff;
+$cuba-menubar-menuitem-text-selected-color: valo-font-color($cuba-menubar-menuitem-background-selected-color, 0.95);
+$cuba-menubar-text-color: valo-font-color($cuba-menubar-background-color, 0.7);
+
+$cuba-sidemenu-background-color: rgba(36, 36, 36, 1);
+$valo-menu-background-color: rgba(36, 36, 36, 1);
+$cuba-sidemenu-title-gradient: false;
+$cuba-sidemenu-title-font-size: round($v-font-size * 1.45);
+$cuba-sidemenu-title-font-weight: 700;
 
 $cuba-maintabsheet-tab-border-top-width: 0;
 $cuba-maintabsheet-tab-margin-left: 0;

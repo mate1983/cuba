@@ -134,8 +134,9 @@ $cuba-login-password-height: $v-unit-size !default;
     height: $cuba-login-username-height;
   }
 
-  .c-login-username.v-textfield-focus {
-    border-bottom-width: first-number($v-border);
+  .c-login-username.v-textfield:focus + .c-login-password,
+  .c-login-username.v-textfield-focus + .c-login-password {
+    border-top-color: $v-focus-color;
   }
 
   .c-login-password {
