@@ -16,10 +16,10 @@
  */
 
 /**
- * The background of generic filter search button.
+ * Defines whether the filter search button should have "friendly" style.
  * @group genericfilter
  */
-$cuba-filter-search-button-background: null !default;
+$cuba-filter-friendly-search-button: false !default;
 
 @mixin cuba-generic-filter($primary-stylename: c-generic-filter) {
   .#{$primary-stylename} {
@@ -85,13 +85,16 @@ $cuba-filter-search-button-background: null !default;
       border-top-left-radius: 0;
     }
 
-    .v-button.filter-search-button,
-    .v-button.v-popupbutton {
-      @if $cuba-filter-search-button-background {
-        background: $cuba-filter-search-button-background;
-        $bg-color: first-color($cuba-filter-search-button-background);
-        border-color: valo-border-color($color: $bg-color);
-        color: valo-font-color($bg-color, 0.9);
+    @if $cuba-filter-friendly-search-button {
+      .v-button.filter-search-button {
+        @include valo-button-style($background-color: $v-friendly-color);
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+      .v-button.v-popupbutton {
+        @include valo-button-style($background-color: $v-friendly-color, $padding: 0);
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
       }
     }
 

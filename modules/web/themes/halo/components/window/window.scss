@@ -15,16 +15,35 @@
  *
  */
 
-$cuba-window-modal-header-height: $v-unit-size !default;
-
-$cuba-window-modal-header-line-height: $cuba-window-modal-header-height - 1px !default;
-
-$cuba-window-modal-header-buttons-line-height: $cuba-window-modal-header-line-height - 3px !default;
-
+/**
+ * The modal window header background.
+ * @group window
+ */
 $cuba-window-modal-header-background: null !default;
-
+/**
+ * The modal window header font size.
+ * @group window
+ */
 $cuba-window-modal-header-font-size: inherit !default;
-
+/**
+ * The modal window header height.
+ * @group window
+ */
+$cuba-window-modal-header-height: $v-unit-size !default;
+/**
+ * The modal window header line height.
+ * @group window
+ */
+$cuba-window-modal-header-line-height: $cuba-window-modal-header-height - 1px !default;
+/**
+ * The modal window buttons line height.
+ * @group window
+ */
+$cuba-window-modal-header-buttons-line-height: $cuba-window-modal-header-line-height - 3px !default;
+/**
+ * The non modal window shadow.
+ * @group window
+ */
 $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
 
 @mixin halo-window($primary-stylename: v-window) {

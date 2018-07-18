@@ -176,6 +176,9 @@ public class AttributeEditor extends AbstractEditor<CategoryAttribute> {
         initFieldGroup();
 
         targetScreensTable.addAction(new AbstractAction("create") {
+            {
+                primary = true;
+            }
             @Override
             public void actionPerform(Component component) {
                 screensDs.addItem(new ScreenAndComponent());

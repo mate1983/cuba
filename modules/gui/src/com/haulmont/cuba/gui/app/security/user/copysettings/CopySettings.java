@@ -50,6 +50,9 @@ public class CopySettings extends AbstractWindow {
         getDialogOptions().setWidthAuto();
 
         copyBtn.setAction(new AbstractAction("deployBtn") {
+            {
+                primary = true;
+            }
             @Override
             public void actionPerform(Component component) {
                 if (usersDs.getItem() == null) {

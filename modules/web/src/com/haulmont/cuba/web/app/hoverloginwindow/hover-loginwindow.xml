@@ -22,6 +22,7 @@
         <action id="submit"
                 caption="mainMsg://loginWindow.okButton"
                 invoke="login"
+                primary="true"
                 shortcut="ENTER"/>
     </actions>
 

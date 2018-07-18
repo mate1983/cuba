@@ -167,6 +167,7 @@ public class SettingsWindow extends AbstractWindow {
                 .withHandler(event ->
                         commit()
                 );
+        ((BaseAction) commitAction).setPrimary(true);
         addAction(commitAction);
         okBtn.setAction(commitAction);
 

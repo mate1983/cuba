@@ -17,6 +17,7 @@
 
 $v-app-background-color: #f2f2f2;
 $v-background-color: lighten($v-app-background-color, 15%);
+$v-border: 1px solid #b3b3b3;
 $v-border-radius: 2px;
 
 $v-font-color: valo-font-color($v-background-color, 0.85);
@@ -77,7 +78,7 @@ $cuba-checkbox-size: 18px;
 $cuba-checkbox-line-height: $cuba-checkbox-size;
 $cuba-checkbox-tick-size: round($v-font-size * 0.85);
 
-$cuba-filter-search-button-background: $v-friendly-color none;
+$cuba-filter-friendly-search-button: true;
 
 $cuba-highlight-primary-action: true;
 

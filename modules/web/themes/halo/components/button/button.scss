@@ -85,4 +85,12 @@ $cuba-highlight-primary-action: false !default;
       right: 0;
     }
   }
+
+  @if $cuba-highlight-primary-action {
+    .#{$primary-stylename}.c-primary-action {
+      background: $v-focus-color;
+      border: 1px solid valo-border-color($color: $v-focus-color);
+      color: valo-font-color($v-focus-color, 0.9);
+    }
+  }
 }
