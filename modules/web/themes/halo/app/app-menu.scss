@@ -128,8 +128,8 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
     }
 
     .v-menubar-menuitem-caption {
-      border-top-left-radius: $v-border-radius;
-      border-bottom-left-radius: $v-border-radius;
+      border-top-left-radius: $cuba-menubar-menuitem-border-radius;
+      border-bottom-left-radius: $cuba-menubar-menuitem-border-radius;
       display: table-cell;
       padding-left: round(2*$v-unit-size/3);
 
@@ -146,8 +146,8 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
       display: table-cell;
       padding-left: round($v-unit-size/3);
       padding-right: round(2*$v-unit-size/3);
-      border-top-right-radius: $v-border-radius;
-      border-bottom-right-radius: $v-border-radius;
+      border-top-right-radius: $cuba-menubar-menuitem-border-radius;
+      border-bottom-right-radius: $cuba-menubar-menuitem-border-radius;
 
       .v-ie11 & {
         border-left: 1px solid transparent;

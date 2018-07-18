@@ -15,6 +15,12 @@
  *
  */
 
+/**
+ * The background of generic filter search button.
+ * @group genericfilter
+ */
+$cuba-filter-search-button-background: null !default;
+
 @mixin cuba-generic-filter($primary-stylename: c-generic-filter) {
   .#{$primary-stylename} {
     outline: 0;
@@ -77,6 +83,16 @@
       padding-right: 0;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
+    }
+
+    .v-button.filter-search-button,
+    .v-button.v-popupbutton {
+      @if $cuba-filter-search-button-background {
+        background: $cuba-filter-search-button-background;
+        $bg-color: first-color($cuba-filter-search-button-background);
+        border-color: valo-border-color($color: $bg-color);
+        color: valo-font-color($bg-color, 0.9);
+      }
     }
 
     .v-button.v-popupbutton .v-popup-indicator {

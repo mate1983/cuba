@@ -20,6 +20,11 @@
  * @group table
  */
 $cuba-table-header-font-weight: $v-font-weight !default;
+/**
+ * Defines whether table row should be color when it is hovered.
+ * @group table
+ */
+$cuba-table-highlight-hover-row: false !default;
 
 @mixin halo-table($primary-stylename: v-table) {
   $background-color: $v-table-background-color or valo-table-background-color();
@@ -353,5 +358,10 @@ $cuba-table-header-font-weight: $v-font-weight !default;
   .#{$primary-stylename}-column-selector-popup .gwt-MenuBar {
     overflow-y: auto;
     overflow-x: hidden;
+  }
+
+  .v-table-body tr.v-table-row:hover,
+  .v-table-body tr.v-table-row-odd:hover {
+    background-color: $cuba-hover-color;
   }
 }
