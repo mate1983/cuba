@@ -68,6 +68,16 @@ $cuba-menubar-menuitem-background-selected-color: $v-selection-color !default;
  */
 $cuba-menubar-menuitem-border-radius: $v-border-radius !default;
 /**
+ * The main menu item font weight.
+ * @group menubar
+ */
+$cuba-menubar-menuitem-font-weight: $v-font-weight !default;
+/**
+ * The main menu submenu item font weight.
+ * @group menubar
+ */
+$cuba-menubar-submenu-item-font-weight: $v-font-weight !default;
+/**
  * The font color for main menu selected item.
  * @group menubar
  */
@@ -116,6 +126,7 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
 
     .v-menubar-menuitem {
       display: table-row;
+      font-weight: $cuba-menubar-submenu-item-font-weight;
       position: relative;
 
       &:active:before {
@@ -253,15 +264,16 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
 
         .v-menubar-menuitem {
           border-radius: $cuba-menubar-menuitem-border-radius;
+          font-weight: $cuba-menubar-menuitem-font-weight;
         }
 
         .v-menubar-menuitem-selected {
-          // TODO: check whether we can avoid including this mixin
           @include valo-button-style(
                   $background-color: $cuba-menubar-menuitem-background-selected-color,
                   $border: none,
                   $border-radius: $cuba-menubar-menuitem-border-radius,
                   $unit-size: null);
+          font-weight: $cuba-menubar-menuitem-font-weight;
           padding: 0 round($v-unit-size / 2.4);
         }
 

@@ -285,4 +285,9 @@ public class BaseAction extends AbstractAction implements Action.HasTarget, Acti
         this.actionPerformHandler = handler;
         return this;
     }
+
+    public BaseAction withPrimary(boolean primary) {
+        this.primary = primary;
+        return this;
+    }
 }

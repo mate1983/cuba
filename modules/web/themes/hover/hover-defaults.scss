@@ -17,7 +17,7 @@
 
 $v-app-background-color: #f2f2f2;
 $v-background-color: lighten($v-app-background-color, 15%);
-$v-border: 1px solid #b3b3b3;
+$v-border: 1px solid (v-shade 1.2);
 $v-border-radius: 2px;
 
 $v-font-color: valo-font-color($v-background-color, 0.85);
@@ -105,6 +105,8 @@ $cuba-menubar-border-color: $cuba-menubar-background-color;
 $cuba-menubar-height: $forty-px;
 $cuba-menubar-menuitem-background-selected-color: lighten($cuba-menubar-background-color, 25%);
 $cuba-menubar-menuitem-border-radius: 0;
+$cuba-menubar-menuitem-font-weight: 700;
+$cuba-menubar-submenu-item-font-weight: 700;
 $cuba-menubar-menuitem-text-selected-color: valo-font-color($cuba-menubar-menuitem-background-selected-color, 0.95);
 $cuba-menubar-text-color: valo-font-color($cuba-menubar-background-color, 0.7);
 
@@ -133,6 +135,7 @@ $cuba-splitpanel-splitter-width: 1px;
 $cuba-tabsheet-tab-caption-selected-color: $v-font-color;
 $cuba-tabsheet-tab-border-selected-color: $v-focus-color;
 
+$cuba-window-modal-actions-align-right: true;
 $cuba-window-modal-header-background: $v-background-color;
 $cuba-window-modal-header-font-size: round($v-font-size * 1.45);
 $cuba-window-modal-header-height: $forty-px;

@@ -36,6 +36,11 @@ $cuba-window-modal-header-height: $v-unit-size !default;
  */
 $cuba-window-modal-header-line-height: $cuba-window-modal-header-height - 1px !default;
 /**
+ * Defines whether modal window action buttons should be aligned to right or not.
+ * @group window
+ */
+$cuba-window-modal-actions-align-right: false !default;
+/**
  * The modal window buttons line height.
  * @group window
  */
@@ -136,5 +141,18 @@ $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
 
   .#{$primary-stylename}-modalitycurtain {
     background-image: none;
+  }
+
+  @if $cuba-window-modal-actions-align-right {
+    .#{$primary-stylename}.v-window-modal {
+      & .v-slot-c-edit-window-actions,
+      & .v-slot-c-lookup-window-actions,
+      & .v-slot-c-buttons-panel {
+        text-align: right;
+      }
+      & .v-verticallayout.c-edit-window-actions-wrapper {
+        float: right;
+      }
+    }
   }
 }

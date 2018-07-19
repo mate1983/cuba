@@ -360,8 +360,19 @@ $cuba-table-highlight-hover-row: false !default;
     overflow-x: hidden;
   }
 
-  .v-table-body tr.v-table-row:hover,
-  .v-table-body tr.v-table-row-odd:hover {
-    background-color: $cuba-hover-color;
+  @if $cuba-table-highlight-hover-row {
+    .v-table-body tr.v-table-row:hover,
+    .v-table-body tr.v-table-row-odd:hover {
+      background-color: $cuba-hover-color;
+      $font-color: valo-font-color($cuba-hover-color, 0.9);
+      color: valo-font-color($cuba-hover-color, 0.9);
+
+      .#{$primary-stylename}-cell-content.boolean-cell-true .#{$primary-stylename}-cell-wrapper,
+      .#{$primary-stylename}-cell-content.boolean-cell-false .#{$primary-stylename}-cell-wrapper {
+        &:before {
+          color: $font-color;
+        }
+      }
+    }
   }
 }
