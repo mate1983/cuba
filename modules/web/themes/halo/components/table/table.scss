@@ -21,7 +21,7 @@
  */
 $cuba-table-header-font-weight: $v-font-weight !default;
 /**
- * Defines whether table row should be color when it is hovered.
+ * Defines whether table row should be colored when it is hovered.
  * @group table
  */
 $cuba-table-highlight-hover-row: false !default;
@@ -361,16 +361,29 @@ $cuba-table-highlight-hover-row: false !default;
   }
 
   @if $cuba-table-highlight-hover-row {
-    .v-table-body tr.v-table-row:hover,
-    .v-table-body tr.v-table-row-odd:hover {
+    .#{$primary-stylename}-row:hover,
+    .#{$primary-stylename}-row-odd:hover {
       background-color: $cuba-hover-color;
-      $font-color: valo-font-color($cuba-hover-color, 0.9);
       color: valo-font-color($cuba-hover-color, 0.9);
 
       .#{$primary-stylename}-cell-content.boolean-cell-true .#{$primary-stylename}-cell-wrapper,
       .#{$primary-stylename}-cell-content.boolean-cell-false .#{$primary-stylename}-cell-wrapper {
         &:before {
-          color: $font-color;
+          color: valo-font-color($cuba-hover-color, 0.9);
+        }
+      }
+    }
+
+    .#{$primary-stylename}-row.v-selected:hover,
+    .#{$primary-stylename}-row-odd.v-selected:hover  {
+      @include valo-gradient($v-selection-color);
+      background-origin: border-box;
+      color: valo-font-color($v-selection-color, 0.9);
+
+      .#{$primary-stylename}-cell-content.boolean-cell-true .#{$primary-stylename}-cell-wrapper,
+      .#{$primary-stylename}-cell-content.boolean-cell-false .#{$primary-stylename}-cell-wrapper {
+        &:before {
+          color: valo-font-color($v-selection-color, 0.9);
         }
       }
     }

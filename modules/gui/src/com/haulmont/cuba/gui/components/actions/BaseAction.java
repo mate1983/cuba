@@ -286,6 +286,12 @@ public class BaseAction extends AbstractAction implements Action.HasTarget, Acti
         return this;
     }
 
+    /**
+     * Set whether this action is primary using fluent API method. Can be used instead of subclassing BaseAction class.
+     *
+     * @param primary primary
+     * @return current instance of action
+     */
     public BaseAction withPrimary(boolean primary) {
         this.primary = primary;
         return this;

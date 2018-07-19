@@ -215,11 +215,12 @@ $cuba-sidemenu-separate-items: true !default;
   }
 
   .#{$primary-stylename}-title {
+    $font-color: valo-font-color($bg, 0.9);
     @if $cuba-sidemenu-title-gradient {
       @include valo-gradient($color: $v-selection-color);
       border-bottom: valo-border($color: $v-selection-color);
+      $font-color: valo-font-color($v-selection-color, 0.9);
     }
-    $font-color: valo-font-color($bg, 0.9);
     color: $font-color;
     font-size: $cuba-sidemenu-title-font-size;
     font-weight: $cuba-sidemenu-title-font-weight;

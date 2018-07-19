@@ -23,7 +23,6 @@ $v-border-radius: 2px;
 $v-font-color: valo-font-color($v-background-color, 0.85);
 $v-font-size: 14px;
 $v-unit-size: 28px;
-$forty-px: ceil($v-unit-size * 1.4);
 
 $v-bevel: none;
 $v-button-font-color: $v-font-color;
@@ -55,6 +54,8 @@ $v-layout-margin-left: $v-unit-size / 2;
 $v-layout-margin-right: $v-unit-size / 2;
 $v-layout-margin-bottom: $v-unit-size / 2;
 
+$v-link-text-decoration: none;
+
 $v-selection-color: #2b84ca;
 $v-selection-item-border-radius: 0;
 $v-selection-item-height: $v-unit-size;
@@ -65,12 +66,16 @@ $v-selection-overlay-padding-horizontal: 0;
 $v-shadow: none;
 
 $v-table-header-font-size: $v-font-size;
-$v-table-cell-padding-horizontal: 7px;
+$v-table-cell-padding-horizontal: $v-unit-size / 4;
 $v-tabsheet-caption-font-size: $v-font-size;
 
 $v-textfield-background-color: $v-background-color;
 $v-textfield-bevel: none;
 $v-textfield-shadow: none;
+
+$valo-menu-background-color: rgba(36, 36, 36, 1);
+
+$forty-px: ceil($v-unit-size * 1.4);
 
 $cuba-button-font-weight: 700;
 
@@ -100,6 +105,13 @@ $cuba-login-username-border-bottom-width: 0;
 $cuba-login-username-border-radius: $v-border-radius $v-border-radius 0 0;
 $cuba-login-username-height: $forty-px;
 
+$cuba-maintabsheet-tab-border-top-width: 0;
+$cuba-maintabsheet-tab-margin-left: 0;
+$cuba-maintabsheet-tabbar-side-padding: 0;
+$cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
+$cuba-maintabsheet-tabs-border-radius: 0;
+$cuba-maintabsheet-top-padding: 0;
+
 $cuba-menubar-background-color: rgba(36, 36, 36, 1);
 $cuba-menubar-border-color: $cuba-menubar-background-color;
 $cuba-menubar-height: $forty-px;
@@ -110,38 +122,31 @@ $cuba-menubar-submenu-item-font-weight: 700;
 $cuba-menubar-menuitem-text-selected-color: valo-font-color($cuba-menubar-menuitem-background-selected-color, 0.95);
 $cuba-menubar-text-color: valo-font-color($cuba-menubar-background-color, 0.7);
 
+$cuba-optiongroup-size: 18px;
+
 $cuba-popupbutton-indicator-font-weight: 700;
 
 $cuba-sidemenu-background-color: rgba(36, 36, 36, 1);
-$valo-menu-background-color: rgba(36, 36, 36, 1);
 $cuba-sidemenu-item-font-weight: 700;
 $cuba-sidemenu-separate-items: false;
 $cuba-sidemenu-title-gradient: false;
 $cuba-sidemenu-title-font-size: round($v-font-size * 1.45);
 $cuba-sidemenu-title-font-weight: 700;
+$cuba-sidemenu-userindicator-font-weight: 700;
 
-$cuba-maintabsheet-tab-border-top-width: 0;
-$cuba-maintabsheet-tab-margin-left: 0;
-$cuba-maintabsheet-tabbar-side-padding: 0;
-$cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
-$cuba-maintabsheet-tabs-border-radius: 0;
-$cuba-maintabsheet-top-padding: 0;
-
-$cuba-table-highlight-hover-row: true;
-$cuba-table-header-font-weight: 700;
-
-$cuba-optiongroup-size: 18px;
 $cuba-splitpanel-splitter-width: 1px;
-$cuba-tabsheet-tab-caption-selected-color: $v-font-color;
+
+$cuba-table-header-font-weight: 700;
+$cuba-table-highlight-hover-row: true;
+
 $cuba-tabsheet-tab-border-selected-color: $v-focus-color;
+$cuba-tabsheet-tab-caption-selected-color: $v-font-color;
 
 $cuba-window-modal-actions-align-right: true;
 $cuba-window-modal-header-background: $v-background-color;
-$cuba-window-modal-header-font-size: round($v-font-size * 1.45);
 $cuba-window-modal-header-height: $forty-px;
 $cuba-window-modal-header-buttons-line-height: $cuba-window-modal-header-height;
 $cuba-window-modal-header-line-height: $cuba-window-modal-header-height;
-$cuba-sidemenu-userindicator-font-weight: 700;
 
 /**
  * Whether to enable show/hide animations for dialog windows.

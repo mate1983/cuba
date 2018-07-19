@@ -56,6 +56,7 @@ $cuba-checkbox-tick-size: round($v-font-size * 0.8 * ($cuba-checkbox-size * 2 / 
     }
 
     :root & {
+      line-height: $cuba-checkbox-size;
       padding-left: round($cuba-checkbox-size * 1.33);
     }
 

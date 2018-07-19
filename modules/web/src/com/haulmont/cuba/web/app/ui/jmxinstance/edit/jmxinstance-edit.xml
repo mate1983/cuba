@@ -35,7 +35,11 @@
                 <field id="nodeName"/>
             </column>
         </fieldGroup>
-        <hbox id="windowActions" align="MIDDLE_LEFT" spacing="true" margin="true;false;false;false">
+        <hbox id="windowActions"
+              align="MIDDLE_LEFT"
+              margin="true;false;false;false"
+              spacing="true"
+              stylename="c-edit-window-actions">
             <button id="windowCommit" action="windowCommit" icon="icons/ok.png"/>
             <button id="testConnection" invoke="testConnection" caption="msg://testConnection" icon="icons/test-connection.png"/>
             <button id="windowClose" action="windowClose" icon="icons/cancel.png"/>

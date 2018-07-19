@@ -146,8 +146,7 @@ $v-window-nonmodal-shadow: 0 0 20px rgba(0,0,0,0.5) !default;
   @if $cuba-window-modal-actions-align-right {
     .#{$primary-stylename}.v-window-modal {
       & .v-slot-c-edit-window-actions,
-      & .v-slot-c-lookup-window-actions,
-      & .v-slot-c-buttons-panel {
+      & .v-slot-c-lookup-window-actions {
         text-align: right;
       }
       & .v-verticallayout.c-edit-window-actions-wrapper {

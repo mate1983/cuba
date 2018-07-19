@@ -35,9 +35,9 @@
                      optionsDatasource="usersDs"
                      required="true"
                      requiredMessage="msg://selectUser"/>
-        <buttonsPanel id="panel">
+        <hbox id="panel" spacing="true" stylename="c-edit-window-actions">
             <button id="copyBtn" caption="msg://copy" icon="icons/ok.png"/>
             <button id="cancelBtn" caption="msg://cancel" icon="icons/cancel.png"/>
-        </buttonsPanel>
+        </hbox>
     </layout>
 </window>
