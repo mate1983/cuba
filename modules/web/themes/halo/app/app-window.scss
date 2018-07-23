@@ -63,7 +63,13 @@ $cuba-maintabsheet-tab-margin-left: ceil($v-unit-size/10) !default;
 $cuba-maintabsheet-tabbar-side-padding: 0 round($v-unit-size/4) !default;
 /**
  * INTERNAL
- * The border width of main tabsheet tabs.
+ * The left border width of main tabsheet tabs.
+ * @group maintabsheet
+ */
+$cuba-maintabsheet-tab-border-left-width: 1px !default;
+/**
+ * INTERNAL
+ * The top border width of main tabsheet tabs.
  * @group maintabsheet
  */
 $cuba-maintabsheet-tab-border-top-width: 1px !default;
@@ -76,23 +82,20 @@ $cuba-maintabsheet-tab-border-top-width: 1px !default;
     }
   }
 
-  .v-tabsheet.c-main-tabsheet,
-  .v-tabsheet-framed.c-main-tabsheet,
-  .v.tabsheet-framed.c-main-tabsheet.padded-tabbar {
-    & > .v-tabsheet-tabcontainer {
-      background-color: $cuba-maintabsheet-tabcontainer-background-color;
-      padding-top: $cuba-maintabsheet-top-padding;
+  .v-tabsheet.c-main-tabsheet.framed.padded-tabbar > .v-tabsheet-tabcontainer {
+    background-color: $cuba-maintabsheet-tabcontainer-background-color;
+    padding-top: $cuba-maintabsheet-top-padding;
 
-      & > .v-tabsheet-tabs {
-        padding: $cuba-maintabsheet-tabbar-side-padding;
-      }
+    & > .v-tabsheet-tabs {
+      padding: $cuba-maintabsheet-tabbar-side-padding;
+    }
 
-      & .v-tabsheet-tabitem .v-caption {
-        border-radius: $cuba-maintabsheet-tabs-border-radius;
-        border-left-width: $cuba-maintabsheet-tab-border-top-width;
-        border-top-width: $cuba-maintabsheet-tab-border-top-width;
-        margin-left: $cuba-maintabsheet-tab-margin-left;
-      }
+    & .v-tabsheet-tabitem .v-caption {
+      $br: $cuba-maintabsheet-tabs-border-radius;
+      border-radius: $br $br 0 0;
+      border-left-width: $cuba-maintabsheet-tab-border-left-width;
+      border-top-width: $cuba-maintabsheet-tab-border-top-width;
+      margin-left: $cuba-maintabsheet-tab-margin-left;
     }
   }
 

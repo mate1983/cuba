@@ -81,7 +81,6 @@ $cuba-button-font-weight: 700;
 
 $cuba-checkbox-size: 18px;
 $cuba-checkbox-line-height: $cuba-checkbox-size;
-$cuba-checkbox-tick-size: round($v-font-size * 0.85);
 
 $cuba-filter-friendly-search-button: true;
 
@@ -105,12 +104,15 @@ $cuba-login-username-border-bottom-width: 0;
 $cuba-login-username-border-radius: $v-border-radius $v-border-radius 0 0;
 $cuba-login-username-height: $forty-px;
 
+$cuba-maintabsheet-tab-border-left-width: 0;
 $cuba-maintabsheet-tab-border-top-width: 0;
 $cuba-maintabsheet-tab-margin-left: 0;
 $cuba-maintabsheet-tabbar-side-padding: 0;
 $cuba-maintabsheet-tabcontainer-background-color: $v-app-background-color;
 $cuba-maintabsheet-tabs-border-radius: 0;
 $cuba-maintabsheet-top-padding: 0;
+
+$cuba-main-managed-tabsheet-top-padding: 0;
 
 $cuba-menubar-background-color: rgba(36, 36, 36, 1);
 $cuba-menubar-border-color: $cuba-menubar-background-color;
@@ -129,9 +131,10 @@ $cuba-popupbutton-indicator-font-weight: 700;
 $cuba-sidemenu-background-color: rgba(36, 36, 36, 1);
 $cuba-sidemenu-item-font-weight: 700;
 $cuba-sidemenu-separate-items: false;
-$cuba-sidemenu-title-gradient: false;
+$cuba-sidemenu-timezone-font-weight: 700;
 $cuba-sidemenu-title-font-size: round($v-font-size * 1.45);
 $cuba-sidemenu-title-font-weight: 700;
+$cuba-sidemenu-title-gradient: false;
 $cuba-sidemenu-userindicator-font-weight: 700;
 
 $cuba-splitpanel-splitter-width: 1px;

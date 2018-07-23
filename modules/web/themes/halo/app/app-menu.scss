@@ -73,15 +73,15 @@ $cuba-menubar-menuitem-border-radius: $v-border-radius !default;
  */
 $cuba-menubar-menuitem-font-weight: $v-font-weight !default;
 /**
- * The main menu submenu item font weight.
- * @group menubar
- */
-$cuba-menubar-submenu-item-font-weight: $v-font-weight !default;
-/**
  * The font color for main menu selected item.
  * @group menubar
  */
 $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
+/**
+ * The main menu submenu item font weight.
+ * @group menubar
+ */
+$cuba-menubar-submenu-item-font-weight: $v-font-weight !default;
 
 @mixin cuba-menubar {
   .c-main-menu.v-menubar {
@@ -108,12 +108,13 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
     }
   }
 
-  $border-width: first-number($v-border);
-  $br: max(0, $v-border-radius - $border-width);
   .c-main-menu.v-menubar > .v-menubar-menuitem {
     border-right: 0;
+    font-weight: $cuba-menubar-menuitem-font-weight;
 
-    @if $v-border-radius > 0 {
+    @if $cuba-menubar-menuitem-border-radius > 0 {
+      $border-width: first-number($v-border);
+      $br: max(0, $cuba-menubar-menuitem-border-radius - $border-width);
       border-radius: $br;
     }
   }
@@ -262,19 +263,14 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
           color: $cuba-menubar-text-color;
         }
 
-        .v-menubar-menuitem {
-          border-radius: $cuba-menubar-menuitem-border-radius;
-          font-weight: $cuba-menubar-menuitem-font-weight;
-        }
-
         .v-menubar-menuitem-selected {
           @include valo-button-style(
                   $background-color: $cuba-menubar-menuitem-background-selected-color,
                   $border: none,
                   $border-radius: $cuba-menubar-menuitem-border-radius,
+                  $font-weight: $cuba-menubar-menuitem-font-weight,
+                  $padding: ('0', 'round($v-unit-size/2.4)'),
                   $unit-size: null);
-          font-weight: $cuba-menubar-menuitem-font-weight;
-          padding: 0 round($v-unit-size / 2.4);
         }
 
         .v-menubar-menuitem:hover .v-menubar-menuitem-caption,
@@ -291,7 +287,7 @@ $cuba-menubar-menuitem-text-selected-color: #e8e8e8 !default;
       .c-user-timezone-label,
       .c-ftsfield-button,
       .c-logout-button,
-      .c-newwindow-button{
+      .c-newwindow-button {
         color: $cuba-menubar-text-color;
       }
 

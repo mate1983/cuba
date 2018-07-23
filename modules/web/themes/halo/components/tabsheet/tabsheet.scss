@@ -20,7 +20,6 @@
  * @group tabsheet
  */
 $cuba-tabsheet-tab-caption-selected-color: $v-selection-color !default;
-
 /**
  * The color of bottom border of selected tab.
  * @group tabsheet
@@ -34,20 +33,18 @@ $cuba-tabsheet-tab-border-selected-color: $v-selection-color !default;
     margin-left: round($v-unit-size/2);
   }
 
-  .#{$primary-stylename}-tabitemcell .v-caption .v-icon + .v-captiontext {
-    margin-left: ceil($v-unit-size/10);
-  }
+  .#{$primary-stylename}-tabitemcell {
+    .v-caption .v-icon + .v-captiontext {
+      margin-left: ceil($v-unit-size/10);
+    }
 
-  .#{$primary-stylename}-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption,
-  .#{$primary-stylename}-tabitemcell .v-caption:hover {
-    color: $cuba-tabsheet-tab-caption-selected-color;
-  }
+    .v-caption:hover {
+      color: $cuba-tabsheet-tab-caption-selected-color;
+    }
 
-  .#{$primary-stylename}-tabitemcell:focus .v-caption {
-    color: valo-font-color($v-app-background-color, 0.58);;
-  }
-
-  .#{$primary-stylename}-tabitemcell .v-tabsheet-tabitem-selected .v-caption.v-caption {
-    border-bottom-color: $cuba-tabsheet-tab-border-selected-color;
+    .v-tabsheet-tabitem-selected .v-caption.v-caption {
+      border-bottom-color: $cuba-tabsheet-tab-border-selected-color;
+      color: $cuba-tabsheet-tab-caption-selected-color;
+    }
   }
 }

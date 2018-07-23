@@ -39,12 +39,7 @@ $cuba-checkbox-line-height--large: ceil($v-unit-size / 1.6);
  * The size of checkbox.
  * @group checkbox
  */
-$cuba-checkbox-size: $v-unit-size/2 !default;
-/**
- * The size of checkbox tick.
- * @group checkbox
- */
-$cuba-checkbox-tick-size: round($v-font-size * 0.8 * ($cuba-checkbox-size * 2 / $v-unit-size)) !default;
+$cuba-checkbox-size: null !default;
 
 @mixin halo-checkbox($primary-stylename: v-checkbox) {
   .#{$primary-stylename} {
@@ -53,21 +48,6 @@ $cuba-checkbox-tick-size: round($v-font-size * 0.8 * ($cuba-checkbox-size * 2 / 
 
     label {
       @include user-select(text);
-    }
-
-    :root & {
-      line-height: $cuba-checkbox-size;
-      padding-left: round($cuba-checkbox-size * 1.33);
-    }
-
-    :root & > input {
-      & ~ label:before,
-      & ~ label:after {
-        font-size: $cuba-checkbox-tick-size;
-        line-height: $cuba-checkbox-size;
-        height: round($cuba-checkbox-size);
-        width: round($cuba-checkbox-size);
-      }
     }
   }
 
@@ -79,5 +59,36 @@ $cuba-checkbox-tick-size: round($v-font-size * 0.8 * ($cuba-checkbox-size * 2 / 
   .#{$primary-stylename}-large {
     line-height: $cuba-checkbox-line-height--large;
     height: $cuba-checkbox-line-height--large + $cuba-checkbox-extra-height;
+  }
+
+  @if $cuba-checkbox-size {
+    .#{$primary-stylename} {
+      @include cuba-checkbox-custom-size($cuba-checkbox-size);
+    }
+
+    .#{$primary-stylename}-small {
+      @include cuba-checkbox-custom-size($cuba-checkbox-size * 0.8);
+    }
+
+    .#{$primary-stylename}-large {
+      @include cuba-checkbox-custom-size($cuba-checkbox-size * 1.2);
+    }
+  }
+}
+
+@mixin cuba-checkbox-custom-size($checkbox-size) {
+  :root & {
+    line-height: $checkbox-size;
+    padding-left: round($checkbox-size * 1.33);
+  }
+
+  :root & > input {
+    & ~ label:before,
+    & ~ label:after {
+      font-size: $checkbox-size - 4;
+      line-height: $checkbox-size;
+      height: round($checkbox-size);
+      width: round($checkbox-size);
+    }
   }
 }

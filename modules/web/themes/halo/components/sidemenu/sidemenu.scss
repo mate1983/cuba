@@ -143,25 +143,25 @@
 }
 
 /**
- * The top offset of mobile buttons and show/hide toggle button.
- * @group sidemenu
- */
-$cuba-sidemenu-top-offset: floor(($v-unit-size - $v-unit-size * 0.8) / 2);
-/**
- * The reserved height for mobile buttons and show/hide toggle button in mobile mode.
- * @group sidemenu
- */
-$cuba-sidemenu-top-height: $v-unit-size + 2 * $cuba-sidemenu-top-offset;
-/**
  * The sidemenu background color.
  * @group sidemenu
  */
 $cuba-sidemenu-background-color: if(is-dark-color($v-app-background-color), darken($v-app-background-color, 4%), lighten($v-app-background-color, 8%)) !default;
 /**
- * Defines whether sidemenu title should have gradient.
+ * The sidemenu items font weight.
  * @group sidemenu
  */
-$cuba-sidemenu-title-gradient: true !default;
+$cuba-sidemenu-item-font-weight: $v-font-weight + 100 !default;
+/**
+ * Defines whether sidemenu items should have delimiters.
+ * @group sidemenu
+ */
+$cuba-sidemenu-separate-items: true !default;
+/**
+ * The sidemenu timezone font weight.
+ * @group sidemenu
+ */
+$cuba-sidemenu-timezone-font-weight: $v-font-weight !default;
 /**
  * The sidemenu title font size.
  * @group sidemenu
@@ -173,20 +173,25 @@ $cuba-sidemenu-title-font-size: $v-font-size--h2 !default;
  */
 $cuba-sidemenu-title-font-weight: $v-font-weight !default;
 /**
- * The sidemenu items font weight.
+ * Defines whether sidemenu title should have gradient.
  * @group sidemenu
  */
-$cuba-sidemenu-item-font-weight: $v-font-weight + 100 !default;
+$cuba-sidemenu-title-gradient: true !default;
+/**
+ * The top offset of mobile buttons and show/hide toggle button.
+ * @group sidemenu
+ */
+$cuba-sidemenu-top-offset: floor(($v-unit-size - $v-unit-size * 0.8) / 2);
+/**
+ * The reserved height for mobile buttons and show/hide toggle button in mobile mode.
+ * @group sidemenu
+ */
+$cuba-sidemenu-top-height: $v-unit-size + 2 * $cuba-sidemenu-top-offset;
 /**
  * The sidemenu user indicator font weight.
  * @group sidemenu
  */
 $cuba-sidemenu-userindicator-font-weight: $v-font-weight !default;
-/**
- * Defines whether sidemenu items should have delimiters.
- * @group sidemenu
- */
-$cuba-sidemenu-separate-items: true !default;
 
 @mixin halo-cuba-sidemenu($primary-stylename: c-sidemenu) {
   $bg: $cuba-sidemenu-background-color;
@@ -250,7 +255,7 @@ $cuba-sidemenu-separate-items: true !default;
   }
 
   .#{$primary-stylename}.v-has-width {
-    .#{$primary-stylename}-item-caption{
+    .#{$primary-stylename}-item-caption {
       max-width: initial;
     }
   }
@@ -279,15 +284,16 @@ $cuba-sidemenu-separate-items: true !default;
 
   .#{$primary-stylename}-item-header {
     color: valo-font-color($bg, 0.7);
-    margin: round($v-unit-size/5) 0 round($v-unit-size/5) round($v-unit-size/2);
+    margin: round($v-unit-size/5) 0;
 
     @if $cuba-sidemenu-separate-items {
-      border-bottom: valo-border($color: $valo-menu-background-color, $strength: 0.5, $border: first-number($v-border) solid v-tone);
+      border-bottom: valo-border(
+              $color: $valo-menu-background-color,
+              $strength: 0.5,
+              $border: first-number($v-border) solid v-tone);
     } @else {
       border-bottom: none;
     }
-
-    margin-left: 0;
 
     .#{$primary-stylename}-item-badge {
       background: transparent;
@@ -492,15 +498,12 @@ $cuba-sidemenu-separate-items: true !default;
     @include valo-menu-style;
 
     .#{$primary-stylename} {
-      background: transparent;
-      background-image: none;
+      background: transparent none;
     }
 
-    .#{$primary-stylename}.v-has-width {
-      .#{$primary-stylename}-item-caption{
-        max-width: initial;
-        width: 100%;
-      }
+    .#{$primary-stylename}.v-has-width .#{$primary-stylename}-item-caption {
+      max-width: initial;
+      width: 100%;
     }
 
     .c-userindicator {
@@ -519,6 +522,7 @@ $cuba-sidemenu-separate-items: true !default;
 
     .c-user-timezone-label {
       color: valo-font-color($valo-menu-background-color, 0.5);
+      font-weight: $cuba-sidemenu-timezone-font-weight;
     }
 
     .c-app-icon {
@@ -564,12 +568,6 @@ $cuba-sidemenu-separate-items: true !default;
     }
 
     .#{$primary-stylename}-item-header {
-      @if $cuba-sidemenu-separate-items {
-        border-bottom: valo-border($color: $valo-menu-background-color, $strength: 0.5, $border: first-number($v-border) solid v-tone);
-      } @else {
-        border-bottom: none;
-      }
-
       color: valo-font-color($valo-menu-background-color, 0.5);
     }
 
